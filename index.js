@@ -1246,7 +1246,7 @@ return res.json({
                 },
                 {
                   "type": "text",
-                  "text": getDay,
+                  "text": PPDay + "-" + PPmonth + "-" + PPyear,
                   "flex": 4,
                   "size": "sm",
                   "color": "#666666",
