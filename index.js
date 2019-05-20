@@ -46,7 +46,7 @@ var intent = req.body.queryResult.intent.displayName;
 
 var PPDay = JSON.stringify(req.body.queryResult.parameters.day);
 var PPmonth = req.body.queryResult.parameters.month;
-var PPyear = JSON.stringify(req.body.queryResult.parameters.year);
+var PPyear = req.body.queryResult.parameters.year;
 var queryText = req.body.queryResult.queryText;
 //console.log("userID -------------- : " + UID)
 console.log(JSON.stringify(userMsg));
