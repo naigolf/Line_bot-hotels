@@ -90,25 +90,65 @@ return res.json({
     "type": 4,
     "payload" : {
     "line":  {
-  "type": "template",
+  "type": "flex",
   "altText": "วันที่เข้าพัก",
-  "template": {
-    "type": "confirm",
-    "actions": [
-      {
-        "type": "message",
-        "label": "เลือกห้อง",
-        "text": "เลือกห้อง"
-      },
-      {
-        "type": "message",
-        "label": "เปลี่ยนวันที่",
-        "text": "เปลี่ยนวันที่"
-      }
-    ],
-    "text": "วันที่ "+ queryText +"\nมีห้องพักว่าง "+body+ " ห้อง"
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "วันที่ "+ queryText +"\nมีห้องพักว่าง "+body+ " ห้อง",
+          "align": "center"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "เลือกห้อง",
+                "text": "เลือกห้อง"
+              },
+              "style": "secondary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "เปลี่ยนวันที่",
+                "text": "เปลี่ยนวันที่"
+              },
+              "style": "secondary"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
+        
+        
         
     }
     }
