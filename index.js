@@ -17,7 +17,7 @@ app.listen(app.get('port'), function() {
 })
 
 
-var App_script = process.env.App_script;
+var app_script = process.env.script;
 var Token = process.env.TOKEN;
 var access_token = 'Bearer {'+Token+'}'
 
@@ -73,7 +73,7 @@ var printdd =  "{ id: "+UID+", name: "+name+" }"
 if(intent == "ho - custom"){
   
   // ไปเช็คห้องว่าว่างไหม
-  var check = App_script+"?ffn=chackday&dayDay="+PPDay;
+  var check = app_script+"?ffn=chackday&dayDay="+PPDay;
   request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
 
@@ -134,7 +134,7 @@ return res.json({
 }else if(intent == "booking" || intent == "room - no"){ ///// เลือกห้อง
   
   // ไปเช็คห้องว่าว่างไหม
-  var check = App_script+"?ffn=getday&day="+PPDay;
+  var check = app_script+"?ffn=getday&day="+PPDay;
   request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
@@ -1086,7 +1086,7 @@ return res.json({
 
 }else if(intent == "room"){
   
-var bookroom = App_script+"?ffn=book&bookroom="+queryText+"&bookingday="+PPDay;
+var bookroom = app_script+"?ffn=book&bookroom="+queryText+"&bookingday="+PPDay;
   request(bookroom, function (error, response, body) {
     if (!error && response.statusCode == 200) {
 
@@ -1147,10 +1147,10 @@ return res.json({
 
 }else if(intent == "room - yes"){   // คอนเฟริม payment blank(blankDay
 
-request(App_script+"?ffn=blank&blankDay="+PPDay);
+request(app_script+"?ffn=blank&blankDay="+PPDay);
 
 
-var bookroom = App_script+"?ffn=confirm&dayconfirm="+PPDay;
+var bookroom = app_script+"?ffn=confirm&dayconfirm="+PPDay;
   request(bookroom, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
