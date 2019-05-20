@@ -91,7 +91,7 @@ return res.json({
     "payload" : {
     "line":  {
   "type": "template",
-  "altText": "this is a confirm template",
+  "altText": "วันที่เข้าพัก",
   "template": {
     "type": "confirm",
     "actions": [
