@@ -45,10 +45,14 @@ var userMsg = req.body.originalDetectIntentRequest.payload.data.message.text;
 var intent = req.body.queryResult.intent.displayName;
 
 var PPDay = JSON.stringify(req.body.queryResult.parameters.day);
-var PPNum = JSON.stringify(req.body.queryResult.parameters.numberroom);
+var PPmonth = JSON.stringify(req.body.queryResult.parameters.month);
+var PPyear = JSON.stringify(req.body.queryResult.parameters.year);
 var queryText = req.body.queryResult.queryText;
 //console.log("userID -------------- : " + UID)
 console.log(JSON.stringify(userMsg));
+    
+//parameters    
+console.log(PPDay + " " + PPmonth + " " + PPyear);
 
 console.log("intent--------- : " + intent)
 
@@ -66,9 +70,6 @@ var options = {
         name = info.displayName;
         pictureUrl = info.pictureUrl;
 //console.log(body)        
-var printdd =  "{ id: "+UID+", name: "+name+" }" 
-//console.log(printdd)        
-
 
 if(intent == "ho - custom"){
   
@@ -1118,7 +1119,7 @@ return res.json({
       }
     ],
     //"text": "เทส"
-        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " มิ.ย. 62"
+        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " " + PPmonth + " " + PPyear
   }
 }
 
@@ -1243,7 +1244,7 @@ return res.json({
                 },
                 {
                   "type": "text",
-                  "text": PPDay + " มิ.ย. 62",
+                  "text": PPDay + " " + PPmonth + " " + PPyear,
                   "flex": 4,
                   "size": "sm",
                   "color": "#666666",
