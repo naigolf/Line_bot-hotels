@@ -1153,8 +1153,6 @@ return res.json({
 request(app_script+"?ffn=blank&blankDay="+PPDay);
 
 
-var gatDay = PPDay + " " + PPmonth + " " + PPyear;
-
 var bookroom = app_script+"?ffn=confirm&dayconfirm="+PPDay;
   request(bookroom, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -1246,7 +1244,7 @@ return res.json({
                 },
                 {
                   "type": "text",
-                  "text": PPDay + "-" + PPmonth + "-" + PPyear,
+                  "text": PPDay + " " + PPmonth + " " + PPyear,
                   "flex": 4,
                   "size": "sm",
                   "color": "#666666",
