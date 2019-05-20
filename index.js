@@ -17,8 +17,12 @@ app.listen(app.get('port'), function() {
 })
 
 
+var App_script = process.env.App_script;
+var Token = process.env.TOKEN;
+var access_token = 'Bearer {'+Token+'}'
+
 var headers = {
-    'Authorization' : 'Bearer cr0ZJAYJLJV941C33xsHyujmWm42kyveHAPuD5EHzN6+ZhPaNB6Q+JkOPCq5p40upnI6L48jZ9uu15d34978YnP2BxJjY+seh2tEOPw89lMcIBqpl7SpNRCFSTvDFF+Y+pdGXfuAlCNen9n4GSBpNwdB04t89/1O/w1cDnyilFU='
+    'Authorization' : access_token
 }
 
 
@@ -69,7 +73,7 @@ var printdd =  "{ id: "+UID+", name: "+name+" }"
 if(intent == "ho - custom"){
   
   // ไปเช็คห้องว่าว่างไหม
-  var check = "https://script.google.com/macros/s/AKfycbw1mAiz_RX1uRGRvSZVSlk9LVmvg0iH6DArI6pINB-XO9gyftc/exec?ffn=chackday&dayDay="+PPDay;
+  var check = App_script+"?ffn=chackday&dayDay="+PPDay;
   request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
 
@@ -130,7 +134,7 @@ return res.json({
 }else if(intent == "booking" || intent == "room - no"){ ///// เลือกห้อง
   
   // ไปเช็คห้องว่าว่างไหม
-  var check = "https://script.google.com/macros/s/AKfycbw1mAiz_RX1uRGRvSZVSlk9LVmvg0iH6DArI6pINB-XO9gyftc/exec?ffn=getday&day="+PPDay;
+  var check = App_script+"?ffn=getday&day="+PPDay;
   request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
@@ -1082,7 +1086,7 @@ return res.json({
 
 }else if(intent == "room"){
   
-var bookroom = "https://script.google.com/macros/s/AKfycbw1mAiz_RX1uRGRvSZVSlk9LVmvg0iH6DArI6pINB-XO9gyftc/exec?ffn=book&bookroom="+queryText+"&bookingday="+PPDay;
+var bookroom = App_script+"?ffn=book&bookroom="+queryText+"&bookingday="+PPDay;
   request(bookroom, function (error, response, body) {
     if (!error && response.statusCode == 200) {
 
@@ -1143,10 +1147,10 @@ return res.json({
 
 }else if(intent == "room - yes"){   // คอนเฟริม payment blank(blankDay
 
-request("https://script.google.com/macros/s/AKfycbw1mAiz_RX1uRGRvSZVSlk9LVmvg0iH6DArI6pINB-XO9gyftc/exec?ffn=blank&blankDay="+PPDay);
+request(App_script+"?ffn=blank&blankDay="+PPDay);
 
 
-var bookroom = "https://script.google.com/macros/s/AKfycbw1mAiz_RX1uRGRvSZVSlk9LVmvg0iH6DArI6pINB-XO9gyftc/exec?ffn=confirm&dayconfirm="+PPDay;
+var bookroom = App_script+"?ffn=confirm&dayconfirm="+PPDay;
   request(bookroom, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
