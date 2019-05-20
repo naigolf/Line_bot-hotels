@@ -90,61 +90,23 @@ return res.json({
     "type": 4,
     "payload" : {
     "line":  {
-  "type": "flex",
+  "type": "template",
   "altText": "วันที่เข้าพัก",
-  "contents": {
-    "type": "bubble",
-    "direction": "ltr",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "วันที่ "+ queryText +"\nมีห้องพักว่าง "+body+ " ห้อง",
-          "align": "center"
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "horizontal",
-      "spacing": "md",
-      "contents": [
-        {
-          "type": "box",
-          "layout": "vertical",
-          "flex": 1,
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "เลือกห้อง",
-                "text": "เลือกห้อง"
-              },
-              "style": "secondary"
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "flex": 1,
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "เปลี่ยนวันที่",
-                "text": "เปลี่ยนวันที่"
-              },
-              "style": "secondary"
-            }
-          ]
-        }
-      ]
-    }
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "message",
+        "label": "เลือกห้อง",
+        "text": "เลือกห้อง"
+      },
+      {
+        "type": "message",
+        "label": "เปลี่ยนวันที่",
+        "text": "เปลี่ยนวันที่"
+      }
+    ],
+    "text": "วันที่ "+ queryText +"\nมีห้องพักว่าง "+body+ " ห้อง"
   }
 }
         
@@ -1139,61 +1101,24 @@ return res.json({
     "type": 4,
     "payload" : {
     "line":  {
-  "type": "flex",
-  "altText": "confirm ห้องที่ต้องการจอง",
-  "contents": {
-    "type": "bubble",
-    "direction": "ltr",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " พ.ค. 62",
-          "align": "center"
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "horizontal",
-      "spacing": "md",
-      "contents": [
-        {
-          "type": "box",
-          "layout": "vertical",
-          "flex": 1,
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "ใช่",
-                "text": "ใช่"
-              },
-              "style": "secondary"
-            }
-          ]
-        },
-        {
-          "type": "box",
-          "layout": "vertical",
-          "flex": 1,
-          "contents": [
-            {
-              "type": "button",
-              "action": {
-                "type": "message",
-                "label": "ไม่ใช่",
-                "text": "ไม่ใช่"
-              },
-              "style": "secondary"
-            }
-          ]
-        }
-      ]
-    }
+  "type": "template",
+  "altText": "ห้องที่ต้องการจอง",
+  "template": {
+    "type": "confirm",
+    "actions": [
+      {
+        "type": "message",
+        "label": "ใช่",
+        "text": "ใช่"
+      },
+      {
+        "type": "message",
+        "label": "ไม่ใช่",
+        "text": "ไม่ใช่"
+      }
+    ],
+    //"text": "เทส"
+        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " พ.ค. 62"
   }
 }
 
