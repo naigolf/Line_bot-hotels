@@ -1118,7 +1118,7 @@ return res.json({
       }
     ],
     //"text": "เทส"
-        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " พ.ค. 62"
+        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " มิ.ย. 62"
   }
 }
 
@@ -1243,7 +1243,7 @@ return res.json({
                 },
                 {
                   "type": "text",
-                  "text": PPDay + " พ.ค. 62",
+                  "text": PPDay + " มิ.ย. 62",
                   "flex": 4,
                   "size": "sm",
                   "color": "#666666",
