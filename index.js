@@ -1139,24 +1139,61 @@ return res.json({
     "type": 4,
     "payload" : {
     "line":  {
-  "type": "template",
-  "altText": "ห้องที่ต้องการจอง",
-  "template": {
-    "type": "confirm",
-    "actions": [
-      {
-        "type": "message",
-        "label": "ใช่",
-        "text": "ใช่"
-      },
-      {
-        "type": "message",
-        "label": "ไม่ใช่",
-        "text": "ไม่ใช่"
-      }
-    ],
-    //"text": "เทส"
-        "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " พ.ค. 62"
+  "type": "flex",
+  "altText": "confirm ห้องที่ต้องการจอง",
+  "contents": {
+    "type": "bubble",
+    "direction": "ltr",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "ต้องการจองห้อง\n" + queryText +"\nเข้าพักในวันที่ "+ PPDay + " พ.ค. 62",
+          "align": "center"
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "spacing": "md",
+      "contents": [
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "ใช่",
+                "text": "ใช่"
+              },
+              "style": "secondary"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "flex": 1,
+          "contents": [
+            {
+              "type": "button",
+              "action": {
+                "type": "message",
+                "label": "ไม่ใช่",
+                "text": "ไม่ใช่"
+              },
+              "style": "secondary"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 
