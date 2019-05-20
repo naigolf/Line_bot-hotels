@@ -52,7 +52,7 @@ var queryText = req.body.queryResult.queryText;
 console.log(JSON.stringify(userMsg));
     
 //parameters    
-console.log(PPDay + " " + PPmonth + " " + PPyear);
+console.log("console....." + PPDay + " " + PPmonth + " " + PPyear);
 
 console.log("intent--------- : " + intent)
 
